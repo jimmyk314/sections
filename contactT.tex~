@@ -1,0 +1,23 @@
+\documentclass[a4paper,10pt]{scrreprt}
+
+
+
+\begin{document}
+\begin{table}[t] \label{contactT}
+\centering                           
+\caption{Estimated Contact Area expressed as a ratio with the available bulk contact area is computed for each flow rate used in the experiment.} 
+\begin{tabular}{c c c}           
+\\[1ex] 
+\hline\hline
+\\             
+Flow Description & Flow Rate $\frac{L}{s}$ & Est Contact Area Ratio\\
+\\
+\hline
+Low & 0.20-0.30 & 0.18\\
+Med & 0.35-0.45 & 0.23\\
+High & 0.50-0.55 & 0.31\\
+\hline\hline
+\end{tabular}
+\label{tab:matrix}
+\end{table}
+\end{document}          

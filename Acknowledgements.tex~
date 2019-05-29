@@ -1,0 +1,12 @@
+%This file will be included in the ThesisMain Document as the Acknowledgements section.
+
+%Author: James Kelly
+%Last Modified: 10-08-2008
+
+\doublespacing
+\vspace[11mm]
+\begin{center}
+\section{ACKNOWLEDGEMENTS}
+\end{center}
+I wish to thank my advisor, Dr. Chris Thaxton, for serving as an irreplacable braintrust and guide in pursuing this research project, in addition to being a tireless worker who has so passionately demonstrated that the experience of his students is his top priority. Additionally, thanks are due in part to the Appalachian State University Physics Department for assistantships, equipment and funding opportunities, and to the faculty members and classmates of the same department for unending insight, excellence and guidance. Thanks to my wife Mary Dean for tolerating and feeding a graduate student, especially in the waning months of this project when it mattered the most. 
+

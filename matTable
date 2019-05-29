@@ -1,0 +1,55 @@
+\documentclass[a4paper,10pt]{scrbook}
+
+
+\begin{document}
+\begin{table}[t!]
+\centering                           
+\caption{Aggregate Samples} 
+\begin{tabular}{l c c c c c c}              
+\hline\hline
+\\                               
+ Material & Diameter & Mass (kg) & ISS (L) & $\frac{n}{kg}$ & Bulk $\rho\;\frac{kg}{L}$
+\\[1ex]
+\hline 
+\\
+% Entering 1st row
+& $\frac{3}{8}$'' 	& 8.70 	& 2.367	& 1123 	& 1.56\\[1ex]
+& $\frac{1}{2}$'' 	& 6.90 	& 2.598	& 201 	& 1.24\\[1ex]
+\raisebox{0 ex}{Quartzite}
+& $\frac{3}{4}$'' 	& 7.05 	& 2.786	& 80 	& 1.27\\[1ex]
+& 5'' 			& 9.00 	& 3.088	& 3 	& 1.62\\[1ex]
+\\
+\hline
+\\
+& $\frac{5}{8}$'' 	& 6.35 	& 3.480 & 196 	& 1.14\\[-1ex]
+\raisebox{2ex}{Crushed Brick}
+& 1'' 			& 5.90 	& 3.556	& 57 	& 1.06\\[1ex]
+\\
+\hline
+\\
+& $\frac{5}{8}$'' 	& 7.50 	& 2.608	& 184 	& 1.35\\[-1ex]
+\raisebox{2ex}{Marble Cobbles}
+& 1'' 			& 7.05 	& 2.675	& 47 	& 1.27\\[1ex]
+\\
+\hline
+\\
+Stream Cobble 		& 2'' 	& 10.4 	& 2.556	& 20 & 1.87\\[2ex]
+\\
+\hline
+\\
+Siltstone 		& $\frac{1}{2}$'' & 8.9 & 3.191 & 7 & 1.60\\[1ex]
+\\
+\hline
+\\
+Steel Balls (1018)	& 1'' 	& 25.0 	& 3.29 	& 15 & 4.50\\[1ex]
+\\
+\hline
+\\
+Glass Marbles		& 1''	& 6.50	& 3.21	& 52 & 1.17\\[1ex]
+\\
+\hline\hline
+\end{tabular}
+\label{tab:AggSam}
+\end{table}
+
+\end{document}

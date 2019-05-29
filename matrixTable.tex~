@@ -1,0 +1,32 @@
+\documentclass[a4paper,10pt]{scrreprt}
+
+
+
+\begin{document}
+\begin{table}[t]
+\centering                           
+\caption{Thermal Sink Parameters: These intrinsic parameters were isolated and used to direct experimentation and theory and are listed in their order of their measured contribution to thermal sink capacity.} 
+\begin{tabular}{l l}           
+\\[1ex] 
+\hline\hline             
+Intrinsic Parameters
+\\
+\hline 
+\\
+Material\\
+Characteristic Radius\\
+Mass\\
+Packing Fraction\\
+\\
+\hline\hline
+Systemic Parameters\\
+\hline
+\\
+Flow Rate\\
+Initial Flow Temperature\\
+\\
+\hline\hline
+\end{tabular}
+\label{tab:matrix}
+\end{table}
+\end{document}          

@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: ThesisMain.aux
+A level-1 auxiliary file: Titlepage.aux
+A level-1 auxiliary file: SigPage.aux
+A level-1 auxiliary file: Copywright.aux
+A level-1 auxiliary file: Abstract.aux
+A level-1 auxiliary file: Acknowledgements.aux
+A level-1 auxiliary file: Introduction.aux
+A level-1 auxiliary file: Experiment.aux
+A level-1 auxiliary file: data.aux
+A level-1 auxiliary file: theory.aux
+A level-1 auxiliary file: discussion.aux
+The style file: natbib.bst
+A level-1 auxiliary file: appA.aux
+A level-1 auxiliary file: AppendixA.aux
+A level-1 auxiliary file: appB.aux
+A level-1 auxiliary file: code.aux
+A level-1 auxiliary file: appC.aux
+A level-1 auxiliary file: vita.aux
+Database file #1: references.bib
+You've used 14 entries,
+            2146 wiz_defined-function locations,
+            602 strings with 6210 characters,
+and the built_in function-call counts, 4947 in all, are:
+= -- 508
+> -- 183
+< -- 11
++ -- 55
+- -- 49
+* -- 340
+:= -- 882
+add.period$ -- 46
+call.type$ -- 14
+change.case$ -- 84
+chr.to.int$ -- 14
+cite$ -- 14
+duplicate$ -- 239
+empty$ -- 358
+format.name$ -- 71
+if$ -- 1018
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 20
+newline$ -- 76
+num.names$ -- 42
+pop$ -- 111
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 162
+stack$ -- 0
+substring$ -- 231
+swap$ -- 39
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 0
+while$ -- 31
+width$ -- 0
+write$ -- 188

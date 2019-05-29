@@ -1,0 +1,27 @@
+\documentclass[a4paper,10pt]{scrreprt}
+
+
+% Title Page
+\usepackage{amsmath,amssymb}
+\begin{document}
+
+\begin{center}
+\textbf{Solid Sphere Heat eqn and Solution}
+\end{center}
+
+Start with the heat equation for a solid sphere in spherical coords...
+\[\frac{\partial T}{\partial t} = D(\frac{\partial^{2}T}{\partial r^2)rT}\]
+Where $D$ is the thermal diffusivity of the material and the right hand fractional part is the LaPlacian in spherical coordinates.
+
+Solution is of the form
+\[T=X(t)R(r)\]
+
+So from the spherical heat equation,
+\[X(t)=C*\left[e^{\tfrac{-t}{Dk^{2}}}\right]\]
+
+This is set up as an end-of-chapter problem in my Boyce/DiPrima DifEQ text for partial solutions. I had to backtrack and infer an exponential solution from a fourier expansion, but I think it's correct.
+
+This scenario assumes the temperature at the boundry to be fixed, which is not true in either of our cases. Our fluid gradient defines the boundry temp in the vessel flow and of course the water bath changes temp in the calorimetry. This is perhaps why this solution is not as effective...yet.
+
+
+\end{document}          

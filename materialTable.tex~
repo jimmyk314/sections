@@ -1,0 +1,54 @@
+%\documentclass[a4paper,10pt]{scrbook}
+
+%\begin{document}
+
+\begin{table}[h]
+\caption{Aggregate Samples} % title name of the table
+\centering                            % centering table
+\begin{tabular}{l c c c c c c}              % creating 10 columns
+\hline\hline                                % inserting double-line
+ Material & Size & Mass (kg) & ISS (L) & $\frac{n}{kg}$ & Bulk $\rho\;\frac{kg}{L}$
+\\[1ex]
+\hline 
+\\
+% Entering 1st row
+& $\frac{3}{8}$'' 	& 4.5 	& 3.98 	& 239 	& \\[1ex]
+& $\frac{1}{2}$'' 	& 4.5 	& 3.98 	& 239 	& \\[1ex]
+\raisebox{0 ex}{Quartzite}
+& $\frac{3}{4}$'' 	& 4.5 	& 3.98 	& 239 	& \\[1ex]
+& 3'' 			& 4.5 	& 3.98 	& 239 	& \\[1ex]
+& 5'' 			& 4.5 	& 3.98 	& 239 	& \\[1ex]
+\\
+\hline
+\\
+& $\frac{5}{8}$'' 	& 4.5 	& 3.98 	& 239 	& \\[-1ex]
+\raisebox{2ex}{Crushed Brick}
+& 1'' 			& 4.5 	& 3.98 	& 239 	& \\[1ex]
+\\
+\hline
+\\
+& $\frac{5}{8}$'' 	& 4.5 	& 3.98 	& 239 	&\\[-1ex]
+\raisebox{2ex}{Marble Cobbles}
+& 1'' 			& 4.5 	& 3.98 	& 239 	&\\[1ex]
+\\
+\hline
+\\
+Stream Cobble 		& 2'' 	& 4.5 	& 3.98 	& 239 &\\[2ex]
+\\
+\hline
+\\
+Siltstone 		& $\frac{1}{2}$'' & 4.5 & 3.98 & 239 &\\[1ex]
+\\
+\hline
+\\
+Steel Balls 		& 1'' 	& 4.5 	& 3.98 	& 239 &\\[1ex]
+\\
+\hline
+\\
+Glass Marbles		& 1''	& 4.5	& 3.98	& 239 &\\[1ex]
+\\
+\hline\hline
+\end{tabular}
+\label{tab:AggSam}
+\end{table}
+%\end{document}

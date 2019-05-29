@@ -1,0 +1,46 @@
+%The signature page in Latex
+
+%Author: James Kelly
+%Modified: 10-08-08
+
+\thispagestyle{empty}
+\doublespacing
+\section*{}
+\begin{center}
+\textbf{AN EXPERIMENT IN BULK THERMAL SINK CAPACITIES OF UNCONSOLIDATED MATERIAL\\}
+\vspace*{6mm}A Thesis\\by\\CHARLES JAMES KELLY\\December 2008\\
+\end{center}
+
+\vspace*{25mm}
+\singlespacing
+APPROVED BY:\vspace*{6mm}
+
+\noindent
+\begin{tabular}{llll}
+& & &\\
+& & &\\
+\hline
+Dr. Chris Thaxton & & &\\
+Chairperson, Thesis Committee & & &\\
+& & &\\
+& & &\\
+\hline
+Dr. Adrian Daw & & &\\
+Member, Thesis Committee & & &\\
+& & &\\
+& & &\\
+\hline
+Dr. T.S Coffey & & &\\
+Member, Thesis Committee & & &\\
+& & &\\
+& & &\\
+\hline
+Dr. W. Anderson & & &\\
+Member, Thesis Committee & & &\\
+& & &\\
+& & &\\
+\hline
+Dr. Edelma D. Huntley\\
+Dean, Research and Graduate Studies\\
+
+\end{tabular}

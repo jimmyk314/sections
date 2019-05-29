@@ -1,0 +1,491 @@
+\vspace{10cm}
+%\begin{center}
+%\section{Flow Sensor DAQ Source Code}
+%\end{center}
+
+%What follows is the source code used to build the flow sensor data acquisition front panel. This code is to be run in a Visual %Basic Compiler, specifically VB 5.0 or 6.0 using a Win98 operating system. This code requires that RSTimer be installed in the %Visual Basic Environment. Additionally, parallel port addresses and ports should be aligned and set in the code before use.
+
+%\pagebreak
+\begin{singlespace}
+\begin{small}
+\begin{verbatim}
+'Flow Sensor Interface V2
+'Written by James Kelly
+'Surface and Terrestrial Processes Lab
+'April 2008
+'
+'This is an interface driver that reads data from LPT1
+'on Data Pin 1 from a rotary flow sensor.
+
+'RSTimer1 is for time stamp generation at 0.1 sec resolution
+'RSTimer2 is for frequency calculation at 1 sec resolution
+'RSTimer3 is for edge counting from the flow sensor signal at 1ms resolution
+'RSTimerFlow is for flow specific time management only during flow events
+
+Option Explicit
+
+'Subs to establish Parallel Port commands
+Private Declare Sub vbOut Lib "WIN95IO.DLL" 
+(ByVal nPort As Integer, ByVal nData As Integer)
+Private Declare Sub vbOutw Lib "WIN95IO.DLL" 
+(ByVal nPort As Integer, ByVal nData As Integer)
+Private Declare Function vbInp Lib "WIN95IO.DLL" 
+(ByVal nPort As Integer) As Integer
+Private Declare Function vbInpw Lib "WIN95IO.DLL" 
+(ByVal nPort As Integer) As Integer
+
+'output data arrays
+Private flowData() As Double
+Private timeData() As Double
+Private timeStamp() As String
+Private cumFlowData() As Double
+
+'timekeeping vars
+Private msec As Long, sec As Long, min As Long, hr As Long
+Private fmsec As Long, fsec As Long, fmin As Long
+Private tStmp As Double
+Private fTime As Double, calibrationConst As Double
+
+'operating flags
+Private outToggle As Boolean
+Private activeFlag As Boolean, launchTim As Date, flowON As Boolean
+Private saveFlag As Boolean
+
+'sampling vars
+Private i As Long
+Private freqCount As Double
+Private edgeDetect As Integer, deltaEdge As Integer
+Private cumF As Double, currF As Double
+
+'File and calibration vars
+Private volume As Double
+Private portNumber As Integer
+Private Units As Boolean 'Imperical = False, Metric = True
+
+
+
+'Front Panel Initialization
+Private Sub Form_Load()
+
+activeFlag = False
+
+'Clock intialize
+msec = 0
+sec = 0
+min = 0
+hr = 0
+
+'flow clock initialize
+fmsec = 0
+fsec = 0
+fmin = 0
+
+tStmp = 0
+et.Caption = "0:0:0.0"
+sr.Text = "1"
+cf.Caption = "0"
+lt.Caption = ""
+ft.Caption = ""
+cumFlow.Caption = "0"
+flowON = False
+currF = 0
+cumF = 0
+cConstant.Text = "0.005766"
+cmdStop.Enabled = False
+cmdReset.Enabled = False
+saveFlag = True
+portNumber = 957
+
+'initialize frequency measurement vars
+edgeDetect = 0
+deltaEdge = 0
+freqCount = 0
+
+'Intialize intervals of timers
+RSTimer1.Interval = 100     '0.1 sec
+RSTimer2.Interval = 1000    '1 sec
+RSTimer3.Interval = 1       '1ms
+RSTimerFlow.Interval = 100
+RSTimerFlow.Enabled = False
+
+End Sub
+'Launch for DAQ
+Private Sub cmdLaunch_Click()
+        
+        i = 0
+        Call Reset
+        
+        RSTimer1.Enabled = True
+        RSTimer2.Enabled = True
+        lt.Caption = Time & "  " & Date
+        activeFlag = True
+        saveFlag = False
+        flowON = False
+        cmdCalibrate.Enabled = False
+        cmdLaunch.Enabled = False
+        cmdQuit.Enabled = False
+        cmdStop.Enabled = True
+        cmdReset.Enabled = True
+        
+        Do
+        DoEvents
+        If freqCount <> 0 Then
+            
+            RSTimerFlow.Enabled = True
+            If flowON <> True Then fs.Caption = Time
+            flowON = True
+            
+        End If
+        If freqCount = 0 Then RSTimerFlow.Enabled = False
+        Loop Until activeFlag = False
+        
+        cmdCalibrate.Enabled = True
+        cmdLaunch.Enabled = True
+        cmdQuit.Enabled = True
+        cmdStop.Enabled = False
+        cmdReset.Enabled = True
+
+End Sub
+
+'Time stamp generation
+Private Sub RSTimer1_Timer()
+
+'Nested If counts out for a time display
+msec = msec + 1
+If msec > 9 Then
+msec = 0
+sec = sec + 1
+If sec > 59 Then
+sec = 0
+min = min + 1
+If min > 59 Then
+min = 0
+hr = hr + 1
+End If
+End If
+End If
+
+'Double Int time stamp is computed for data handling
+tStmp = sec + 0.001 * msec
+
+'Assemble counters for time visualization
+et.Caption = CStr(hr & ":" & min & ":" & sec & "." & msec)
+
+'---Insert to test port 1 output response - must test ok at 1kHz---
+'If outToggle = True Then
+'vbOut 888, 0
+'outToggle = False
+'Else
+'vbOut 888, 1
+'outToggle = True
+'End If
+
+End Sub
+'Timer for Freq calcuation at 1sec Resolution
+Private Sub RSTimer2_Timer()
+
+'Current Sample Flux Monitoring
+ts.Caption = CStr(freqCount / CDbl(sr.Text))
+'Reset sampling counter
+freqCount = 0
+
+'Compute Current Flow Rate
+currF = 0.0164 * CDbl(ts.Caption) ^ 0.7504
+'Display Current Flow
+cf.Caption = CStr(currF)
+If flowON = True Then
+
+            'Compute Cumulative Flow
+            cumF = currF + cumF
+            'Display Cumulative Flow
+            cumFlow.Caption = CStr(cumF)
+
+            ReDim Preserve flowData(i)
+            ReDim Preserve timeData(i)
+            ReDim Preserve timeStamp(i)
+            ReDim Preserve cumFlowData(i)
+            
+            RSTimerFlow.Enabled = True
+            If flowON <> True Then fs.Caption = Time
+            flowON = True
+            
+            'assembling data arrays for export
+            flowData(i) = CDbl(cf.Caption)
+            timeData(i) = i
+            timeStamp(i) = Time
+            cumFlowData(i) = CDbl(cumFlow.Caption)
+            
+            'visualization of data
+            dataOut.Text = dataOut.Text & CStr(timeData(i))
+		 & vbTab & Format$(flowData(i), "0.000") & vbCrLf
+            i = i + 1
+
+End If
+
+End Sub
+'Timer for edge counting of sensor signal at 1ms res
+Private Sub RSTimer3_Timer()
+
+edgeDetect = vbInp(portNumber)
+
+If edgeDetect <> deltaEdge Then
+    freqCount = freqCount + 1
+    deltaEdge = edgeDetect
+End If
+
+End Sub
+
+Private Sub RSTimerFlow_Timer()
+'This is essentailly a duplication of the main elapsed time clock,
+'but used for flow timing only.
+
+fmsec = fmsec + 1
+If fmsec > 9 Then
+fmsec = 0
+fsec = fsec + 1
+If fsec > 59 Then
+fsec = 0
+fmin = fmin + 1
+End If
+End If
+
+fTime = fmin + 0.016949152542 * fsec + 0.001 * fmsec
+
+'Assemble counters for flow time visualization
+If activeFlag = True Then fft.Caption = 
+	CStr(fmin & ":" & fsec & "." & fmsec)
+End Sub
+'This resets display data and clears any data remnants in the output array.
+'This is invoked manually or at launch time.
+Private Sub cmdReset_Click()
+Dim perg As Integer
+
+If saveFlag = False Then
+perg = MsgBox("Data has not been saved", vbOKCancel, "Data Purge?!")
+    
+    If perg = 2 Then Exit Sub
+
+End If
+
+lt.Caption = ""
+et.Caption = ""
+ft.Caption = ""
+cf.Caption = ""
+cumFlow.Caption = ""
+ts.Caption = ""
+fs.Caption = ""
+fft.Caption = ""
+fv.Caption = ""
+dataOut.Text = ""
+fmsec = 0
+fsec = 0
+fmin = 0
+
+ReDim flowData(0)
+ReDim timeData(0)
+ReDim timeStamp(0)
+ReDim cumFlowData(0)
+
+saveFlag = True
+
+cmdReset.Enabled = False
+
+End Sub
+
+Private Sub cmdSave_Click()
+
+On Error GoTo DialogError
+
+With CommonDialog1
+    .CancelError = True
+    .Filter = "Exported Data (*.dat)|*.dat"
+    .FilterIndex = 1
+    .DialogTitle = "Select a location and name for your data file"
+    .ShowSave
+End With
+
+Dim c As Long
+c = 0
+
+Open CommonDialog1.filename For Output As #1
+
+'Write data to filestream....
+'Header info
+Print #1, "ASU Surface and Terrestrial Processes Lab"
+Print #1, "Stormwater discharge simulator flow sensor output"
+Print #1, Date & timeStamp(0)
+Print #1, comment.Text & vbCrLf
+Print #1, "ElapTime (s)" & vbTab & "Current Flow" & 
+		vbTab & "Cumulative Flow"
+
+'dump flow data from arrays to filestream
+Do
+Print #1, timeStamp(c) & vbTab & timeData(c) & vbTab 
+	& Format$(flowData(c), "0.00") & vbTab & Format$
+		(cumFlowData(c), "0.00") & vbTab
+c = c + 1
+Loop While c < i
+
+If c = 0 Then MsgBox ("No Data was Exported")
+
+saveFlag = True
+Close
+
+DialogError:
+If saveFlag = False Then MsgBox ("No Data was Exported")
+End Sub
+
+'Sub for creating a calibration curve and related linear constant
+'Output calibration data is sent to a default flowCalibrate_x.dat file
+'careful - this one's a mess!
+Private Sub cmdCalibrate_Click()
+
+'Calibration arrays
+Dim flowDat() As Double
+Dim timeDat() As Long
+'For each variant variable
+Dim flow As Variant
+Dim timeD As Long
+Dim sum As Double
+Dim c As Integer, cc As Integer
+
+Dim strVolume As String
+Dim dataSave As Integer
+    dataSave = 1
+Dim sampleCnt As Long
+    
+cmdCalibrate.Enabled = False
+cmdLaunch.Enabled = False
+cmdQuit.Enabled = False
+cmdStop.Enabled = True
+cmdReset.Enabled = False
+
+cConstant.Text = "1"
+activeFlag = True
+strVolume = InputBox("Enter Calibration Volume in Litres",
+		 "Calibration Volume", "50")
+
+
+
+If IsNumeric(CDbl(strVolume)) Then
+    volume = CDbl(strVolume)
+Else
+    MsgBox ("Entered Value is not a number")
+Exit Sub
+End If
+        
+'management of existing data
+If saveFlag = False Then dataSave = MsgBox("You may have unsaved data. 
+	Cablibration will clear this. Continue?", vbOKCancel)
+If dataSave = 1 Then
+    saveFlag = True
+    i = 0
+Else
+      Exit Sub
+End If
+        
+RSTimerFlow.Enabled = True
+        
+        i = 0
+        Call Reset
+        
+        RSTimer1.Enabled = True
+        lt.Caption = Time & "  " & Date
+        activeFlag = True
+        saveFlag = False
+        flowON = False
+     
+        Do
+        DoEvents
+        If freqCount <> 0 Then
+            
+            RSTimerFlow.Enabled = True
+            If flowON <> True Then fs.Caption = Time
+            flowON = True
+            
+        End If
+        If freqCount = 0 Then RSTimerFlow.Enabled = False
+        Loop Until activeFlag = False
+        
+    RSTimer1.Enabled = False
+    RSTimer2.Enabled = False
+    RSTimer3.Enabled = False
+    RSTimerFlow.Enabled = False
+    cmdEnable.Caption = "Timers Off"
+    cmdEnable.Enabled = False
+
+c = 0
+cc = 0
+sum = 0
+dataOut.Text = ""
+
+For Each flow In flowData
+    If flow <> 0 Then
+        ReDim Preserve flowDat(c)
+        ReDim Preserve timeDat(c)
+        flowDat(c) = flow
+        timeDat(c) = timeData(cc)
+        dataOut.Text = dataOut.Text & vbCrLf & timeDat(c) & 
+		vbTab & Format$(flowDat(c), "0.00")
+        
+        sum = sum + flowDat(c)
+                
+        c = c + 1
+    End If
+    
+    timeD = c
+    
+cc = cc + 1
+Next
+dataOut.Text = dataOut.Text & vbCrLf & "Time = " & CStr(timeD) & 
+		vbCrLf & "Sample# = " & CStr(sum)
+
+RSTimerFlow.Enabled = False
+
+'calibrationConst = timeD / volume
+calibrationConst = volume / sum
+cConstant.Text = CStr(calibrationConst)
+        
+cmdCalibrate.Enabled = True
+cmdLaunch.Enabled = True
+cmdQuit.Enabled = True
+cmdStop.Enabled = False
+cmdReset.Enabled = True
+        
+End Sub
+Private Sub cmdEnable_Click()
+
+If (cmdEnable.Caption = "Disable") Then
+    RSTimer1.Enabled = False
+    RSTimer2.Enabled = False
+    RSTimer3.Enabled = False
+    RSTimerFlow.Enabled = False
+    cmdEnable.Caption = "Timers Off"
+    cmdEnable.Enabled = False
+End If
+
+End Sub
+
+Private Sub cmdStop_Click()
+RSTimer1.Enabled = False
+RSTimer2.Enabled = False
+activeFlag = False
+flowON = False
+
+        cmdCalibrate.Enabled = True
+        cmdLaunch.Enabled = True
+        cmdQuit.Enabled = True
+        cmdStop.Enabled = False
+        cmdReset.Enabled = True
+
+End Sub
+Private Sub cmdQuit_Click()
+If saveFlag = False Then
+MsgBox ("Data has not been saved. Please reset or save.")
+Exit Sub
+End If
+End
+End Sub
+\end{verbatim}
+\end{small}
+\end{singlespace}

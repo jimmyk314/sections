@@ -1,0 +1,30 @@
+\documentclass[a4paper,10pt]{scrbook}
+\usepackage{graphicx}
+\usepackage{epic,eepic,pstricks}
+
+\begin{document}
+
+
+test, test
+
+
+\begin{figure}[hbt]
+
+\begin{center}
+\begin{center}
+\input{koch.eepic}
+\end{center}
+
+\end{center}
+
+\caption{Transverse momentum distributions}\label{fig:erptsqfit}
+\end{figure}
+
+test test
+\end{document}
+
+
+
+
+
+

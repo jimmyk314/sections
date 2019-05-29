@@ -1,0 +1,32 @@
+\documentclass[a4paper,10pt]{scrreprt}
+
+
+
+\begin{document}
+\begin{table}[t]
+\centering                           
+\caption{Thermal Sink Parameters: This lists the quantities used to direct experimentation and analysis. The intrinsic parameters are ranked in general order of measured dominance with respect to thermal sink capacity. The systemic parameters are not listed in any particular order} 
+\begin{tabular}{l l}           
+\\[1ex] 
+\hline\hline             
+Intrinsic Parameters
+\\
+\hline 
+\\
+Material\\
+Characteristic Radius\\
+Packing Fraction\\
+\\
+\hline\hline
+Systemic Parameters\\
+\hline
+\\
+Flow Rate\\
+Geometry\\
+Reservoir Temperature\\
+\\
+\hline\hline
+\end{tabular}
+\label{tab:matrix}
+\end{table}
+\end{document}          

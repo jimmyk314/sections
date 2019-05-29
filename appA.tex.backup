@@ -1,0 +1,13 @@
+%This file will be included in the ThesisMain Document as the copywright page.
+
+%Author: James Kelly
+%Last Modified: 10-08-2008
+
+\doublespacing
+\thispagestyle{empty}       %do not display page numbers
+\section*{}
+\begin{center}
+\vspace{60mm}
+Copyright \copyright  2008 by James Kelly \\
+All Rights Reserved.
+\end{center}

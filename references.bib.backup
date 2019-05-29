@@ -1,0 +1,160 @@
+%The following database contains the bibliographical information for the thesis. Latex later formats the information to the appropriate style.
+
+%James Kelly
+%Last Modified: 11-01-08
+
+@INPROCEEDINGS{krautASCE,
+  AUTHOR = {Thaxton, C.S. and C.M. Babyak and W. Anderson and J. L. Anderson and W.P. Benner III and J.A. Davis and C.A. Penders},
+  TITLE = {Baseline monitoring case study of a high-gradient, urbanized stream - {Boone Creek, Boone, NC}, 2007},
+  BOOKTITLE = {Low Impact Development Conference Proceedings},
+  YEAR = {2007},
+  ORGANIZATION = {ASCE}
+}
+
+@UNPUBLISHED{krautBASE,
+  AUTHOR = {Thaxton, C.S. and W.P. Anderson and C.M. Babyak},
+  TITLE = {Baseline monitoring, analysis, and modeling of the Boone Creek watershed},
+  NOTE = {Final Report for the University Research Council Competitive Grants program, Appalachian State University, Boone, NC},
+  YEAR = {2007}
+}
+
+@UNPUBLISHED{theoryKern,
+  AUTHOR = {Thaxton, C.S.},
+  TITLE = {Empirical Formulation and Paramatrization of Thermal Characteristics in Non-Consolidtaed Construction Aggregate},
+  NOTE = {Theoretical Underpinnings of Stormwater Discharge Simulations Developed for Future Publications},
+  YEAR = {2008}
+}
+
+@BOOK{watersheds,
+  AUTHOR = {Barry, Paul A.},
+  TITLE = {Watersheds, Processes, Assessment, and Management},
+  YEAR = {2004},
+  EDITION = {1st},
+  TITLE = {Watersheds},
+  PUBLISHER = {John Wiley and Sons, Inc.},
+  ADDRESS = {Hoboken, New Jersey}
+}
+
+@BOOK{sensors,
+  AUTHOR = {Pallas-Areny, Ramon and Webster, John G.},
+  TITLE = {Sensors and Signal Conditioning},
+  PUBLISHER = {John Wiley and Sons, Inc.},
+  ADDRESS = {Hoboken, New Jersey},
+  YEAR = {2001},
+  EDITION = {2nd}
+}
+
+@BOOK{heatxfer,
+  AUTHOR = {Lienhard IV, John H. and Lienhard V, John H.},
+  TITLE = {A Heat Transfer Textbook},
+  PUBLISHER = {J.H. Lienhard V},
+  ADDRESS = {Cambridge, MA},
+  YEAR = {2001},
+  EDITION = {0.2}
+}
+
+@BOOK{kRocks,
+  AUTHOR = {Christoph Clauser and Ernst Huenges},
+  TITLE = {Thermal conductivity of rocks and minerals in Rock physics and phase relations; a handbook of physical constants},
+  PUBLISHER = {American Geophysical Union},
+  YEAR = {1995}
+}
+
+@BOOK{ballast,
+  AUTHOR = {Coenraad Esveld},
+  TITLE = {Modern Railway Track},
+  PUBLISHER = {MRT-Productions},
+  YEAR = {2001},
+  EDITION = {2nd},
+  ADDRESS = {Zaltbommel, The Netherlands}
+}
+
+@ARTICLE{quench,
+  AUTHOR = {A.L. Crosboe and S.K. Banerjee},
+  TITLE = {Quenching of a Solid Sphere in 0il},
+  PUBLISHER = {Springer Berlin / Heidelberg},
+  JOURNAL = {Heat and Mass Transfer},
+  YEAR = {1974},
+  VOLUME = {7},
+  NUMBER = {2},
+  PAGES = {113-120},
+  MONTH = {June}
+}
+
+@INPROCEEDINGS{urban,
+  AUTHOR = {Mark S. Kieser and 'Andrew' Feng Feng and Jeffrey A. Spoelstra},
+  TITLE = {Role of Urban Stormwater Best Management Practices in Temperature TMDLs},
+  BOOKTITLE = {Proceedings of the Water Environment Federation, National TMDL Science and Policy 2003},
+  YEAR = {2003},
+  PUBLISHER = {Water Environment Federation},
+  PAGES = {1716-1739}
+}
+
+@INPROCEEDINGS{rgis,
+  AUTHOR = {Kathleen Arrington},
+  TITLE = {Protecting cold water streams from the impact of development},
+  BOOKTITLE = {Rural Geospatial Innovations in America Conference},
+  YEAR = {2003},
+  NOTE = {Conference Proceedings}
+}
+
+@ARTICLE{base,
+  AUTHOR = {Cote, J and Konrad, {J.M.}},
+  TITLE = {Thermal conductivity of base-course materials},
+  JOURNAL = {Canadian Geotechnical Journal},
+  YEAR = {2005},
+  MONTH = {February},
+  VOLUME = {42},
+  NUMBER = {1},
+  PAGES = {61-78},
+  PUBLISHER = {National Research Council Canada}
+}
+
+@BOOK{conduct,
+	AUTHOR = {M. Necati Ozisik},
+	TITLE = {Heat Conduction},
+	PUBLISHER = {John Wiley & Sons, INC.},
+  	YEAR = {1993},
+  	EDITION = {2nd},
+  	ADDRESS = {New York, NY}
+}
+
+@BOOK{EPA,
+	AUTHOR = {Oliver A Houck},
+	TITLE = {The Clean Water Act TMDL Program: Law, Policy and Implementation},
+	PUBLISHER = {Environmental Law Institute},
+	YEAR = {2002}
+}
+
+@BOOK{elec,
+	AUTHOR = {P.V. O'Neil},
+	TITLE = {Advanced Engineering Mathematics},
+	PUBLISHER = {Wadsworth Publishing Co.},
+	ADDRESS = {Belmont, CA},
+	YEAR = {1991}
+}
+
+@ARTICLE{anderson,
+	AUTHOR = {William P. Anderson and Joseph L. Anderson and C.S. Thaxton and Carol M. Babyak},
+	TITLE = {The influence of baseflow on stream temperatures in an urbanized high-gradient stream},
+	YEAR = {2008},
+	JOURNAL = {Journal of Hydrology},
+	NOTE = {Submitted Manuscript}
+}
+
+@BOOK{thaxAdd,
+  AUTHOR = {C.T. Haan and B.J. Barfield and J.C. Hayes},
+  TITLE = {Design Hydrology and Sedimentology for Small Catchments},
+  YEAR = {1994},
+  PUBLISHER = {Academic Press},
+  ADDRESS = {San Diego, CA}
+}
+
+@ARTICLE{thaxAdd2,
+  AUTHOR = {M.P. Jones and W.F. Hunt},
+  TITLE = {Thermal conductivity of base-course materials},
+  JOURNAL = {Journal of Environmental Engineering},
+  YEAR = {2009}
+}
+
+

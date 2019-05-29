@@ -1,0 +1,52 @@
+\documentclass[a4paper,10pt]{scrbook}
+
+
+\begin{document}
+\begin{table}[t]
+\begin{large}\caption{Experiment Nomenclature}\end{large}
+\label{simNom}
+\centering
+\begin{tabular}{r l l}
+Parameter & Abbreviation & Units\\
+\hline
+\\[-.5ex]
+Fluid (Water)					&	$W$\\[3mm]
+
+Aggregate Material or Sample			& 	$R$\\[3mm]
+
+Energy						&	$Q$			& $J$\\[3mm]
+
+Net Energy Exchange [Source -- Sink]		&	$Q_{net}[W-R]$		& $J$\\[3mm]
+
+Time Step Energy Exchange [Source -- Sink]	&	$Q(t)[W-R]$		& $J$\\[3mm]
+
+Volumetric Heat Capacity of Fluid (Water)	&	$Cv_{W}$		& $\dfrac{J}{L*K}$\\[3mm]
+
+Bulk Specific Heat of Aggregate			&	$c_{R}$			& $\dfrac{kJ}{kg*K}$\\[3mm]
+
+Vessel Residency Time 				&	$t_{V}$			& $s$\\[3mm]
+
+Aggregate Bulk Specific Gravity			&	$\rho_{R}$		&\\[3mm]
+
+Aggregate Bulk Thermal Conductivity		&	$\kappa_{R}$		& $\dfrac{W}{m*K}$\\[3mm]
+
+Aggregate Bulk Thermal Diffusivity		&	$\alpha_{R}$		& $\dfrac{m^{2}}{s}$\\[3mm]
+
+Aggregate Mass					&	$m_{R}$			& kg\\[3mm]
+
+Average Top Sensor Temperature 			&	$T[TOP]$		& $^{o}C$\\[3mm]
+
+Time Stepped Bottom Sensor Temperature 		&	$T(t)[BOTTOM]$		& $^{o}C$\\[3mm]	
+
+Fluid Flow Rate (L/s)				&	$\nu_{W}$		& $\dfrac{L}{s}$\\[3mm]
+
+Top - Bottom temperature difference 		&	$\Delta T[TB]$		& $^{o}C$\\[3mm]
+
+Time Stepped $\Delta T[TB]$ 			&	$\Delta T(t)[TB]$	& $^{o}C$\\[3mm]
+
+Ambient Temperature				&	$T[AMBIENT]$		& $^{o}C$\\[3mm]
+
+\hline
+\end{tabular}
+\end{table} 
+\end{document}

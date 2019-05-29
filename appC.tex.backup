@@ -1,0 +1,16 @@
+%This file will be included in the ThesisMain Document as the copywright page.
+
+%Author: James Kelly
+%Last Modified: 10-08-2008
+\section*{}
+\doublespacing
+\thispagestyle{empty}       %do not display page numbers
+\begin{center}
+\vspace{20mm}
+\textbf{Data Plots}
+\vspace{30mm}
+\subsubsection{Quartzite Family}
+\subsubsection{Marble and Brick}
+\subsubsection{Siltstone, Cobble, Glass and Steel}
+\subsubsection{Comparison Plots}
+\end{center}

@@ -1,0 +1,19 @@
+%This file will be included in the ThesisMain Document as the Abstract section.
+%Author: James Kelly
+%Last Modified: 10-08-2008
+
+
+\doublespacing
+\begin{center}
+\vspace{11mm}
+\section{ABSTRACT}
+\textbf{AN EXPERIMENT IN BULK THERMAL SINK CAPACITIES OF UNCONSOLIDATED MATERIAL}
+(December 2008)\\
+\vspace{6mm}James Kelly, BSE Mathematics Mansfield University of Pennsylvania\\
+M.S. Appalachian State University\\
+Thesis Chairperson: Dr. Chris S. Thaxton\vspace{3mm}
+\end{center}
+
+Temperature analysis in upland watersheds has demonstrated that urban stormwater discharge presents significant thermal pollution concerns. High mountain streams are characteristically lower in volume and higher in flow rate variability compared to lowland creeks and rivers. These and other characteristics specific to upland streams imply a much stronger influence from discharge sources. As urban development continues to pervade mountainous regions, thermal pollution impacts on ecosystems are mounting and engineering solutions are needed. 
+
+Construction aggregates are commonly implemented as a stormwater runoff mitigation agent to aid in sediment filtration and temperature mediation. This research is an evaluation of how specific arrangements of aggregates, such as gravel or concrete, actually affect the discharge temperatures before final release into the watershed. Aggregates are immersed in a thermally charged flow and temperature changes in the flow are recorded. Bulk energy exchange rates and quantities are then computed and compared against various aggregate characteristics. Based on the results, it appears likely that some thermal concerns can be mitigated through proper implementation of aggregate thermal sinks. It is intended that these results will contribute to a reformulation of upland construction codes to better differentiate and accommodate location specific methods of development.
